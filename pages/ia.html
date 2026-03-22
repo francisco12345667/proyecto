@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Documental - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="brigadistas.html">Brigadistas</a></li>
+                    <li><a href="ia.html" class="activo">IA Documental</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="ia-wrapper">
+        <div class="ia-header">
+            <h2 style="color: var(--cna-rojo); border: none; margin-bottom: 0;">Asistente de Investigación</h2>
+            <p style="font-size: 0.9rem; color: #ccc;">Haz preguntas sobre la historia, brigadistas o fechas. Solo respondo con base en las fuentes oficiales documentadas.</p>
+        </div>
+        
+        <div class="chat-window" id="chat-window">
+            </div>
+        
+        <div class="chat-controls">
+            <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta aquí... (Ej. ¿Qué fue la cruzada?)">
+            <button class="btn btn-primary" id="btn-enviar">Enviar</button>
+            <button class="btn btn-secondary" id="btn-limpiar" title="Borrar historial">🗑️</button>
+        </div>
+    </main>
+
+    <script src="../js/opciones.js"></script>
+    <script src="../js/ia.js"></script>
+</body>
+</html>

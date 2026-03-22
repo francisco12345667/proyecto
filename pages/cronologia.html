@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Línea de Tiempo - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .timeline-container { max-width: 800px; margin: 3rem auto; padding: 0 20px; position: relative; }
+        .timeline-container::after { content: ''; position: absolute; width: 4px; background-color: var(--cna-rojo); top: 0; bottom: 0; left: 50px; margin-left: -2px; }
+        .timeline-item { padding: 20px 30px; position: relative; background-color: inherit; width: 100%; padding-left: 90px; margin-bottom: 20px; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; background-color: var(--cna-blanco); border: 4px solid var(--cna-rojo); border-radius: 50%; top: 25px; left: 40px; z-index: 1; }
+        .timeline-content { padding: 20px; background-color: var(--cna-blanco); border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); border-left: 5px solid var(--cna-negro); }
+        .timeline-fecha { font-weight: bold; color: var(--cna-rojo); font-size: 1.1rem; margin-bottom: 0.5rem; display: block; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="cronologia.html" class="activo">Cronología</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="timeline-container" id="contenedor-cronologia">
+        </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const contenedor = document.getElementById('contenedor-cronologia');
+            try {
+                const respuesta = await fetch('../data/cronologia.json');
+                const hitos = await respuesta.json();
+                
+                hitos.forEach(hito => {
+                    const item = document.createElement('div');
+                    item.className = 'timeline-item';
+                    item.innerHTML = `
+                        <div class="timeline-content">
+                            <span class="timeline-fecha">${hito.fecha}</span>
+                            <h3 style="margin-bottom: 10px;">${hito.evento}</h3>
+                            <p>${hito.detalles}</p>
+                        </div>
+                    `;
+                    contenedor.appendChild(item);
+                });
+            } catch (error) {
+                contenedor.innerHTML = '<p>Error al cargar la cronología.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+[
+  {
+    "imagen": "../assets/img/descarga (1)-new.jpg",
+    "alt": "Afiche: Convirtiendo la oscurana en claridad",
+    "clase_css": "contain",
+    "titulo": "El Símbolo de la Claridad",
+    "descripcion": "Este icónico afiche representa visualmente el lema central de la epopeya educativa: 'Convirtiendo la oscurana en claridad'. El diseño muestra un puño firme que, en lugar de empuñar un arma, sostiene un lápiz que irradia luz como una antorcha. Simboliza el esfuerzo titánico del Ejército Popular de Alfabetización (EPA) para erradicar el 50.35% de analfabetismo heredado de las décadas pasadas. La educación se presentó como la luz necesaria para sacar al campesinado y a las clases populares de la marginación, otorgándoles las herramientas para comprender y defender sus derechos ciudadanos."
+  },
+  {
+    "imagen": "../assets/img/ALFABETIZAR es seguir el camino marcado por Carlos Fonseca y Sandino ALFABETIZACIÓN ES LIBERACIÓN ¡Nicaragua libre!-new.jpg",
+    "alt": "Afiche: Alfabetizar es Liberación",
+    "clase_css": "contain",
+    "titulo": "El Mandato Histórico de Liberación",
+    "descripcion": "Una pieza gráfica fundamental que ilustra la ruptura de las cadenas de la ignorancia (representadas literalmente rompiéndose ante el libro abierto). El afiche enuncia la premisa política y moral de la Cruzada: 'Alfabetizar es seguir el camino señalado por Carlos Fonseca y Sandino'. Esto documenta cómo la campaña no fue solo un proyecto técnico, sino el cumplimiento de la orden de Fonseca ('Y también enséñenles a leer'). La alfabetización se entendió como un acto definitivo de liberación nacional y cimentación del nuevo sistema educativo."
+  },
+  {
+    "imagen": "../assets/img/a consolidar la Revolución en la Retaguardia y la Alfabetización Retaguardia de la Alfabetización-new.jpg",
+    "alt": "Afiche: Retaguardia de la Alfabetización",
+    "clase_css": "contain",
+    "titulo": "La Organización en la Retaguardia",
+    "descripcion": "Mientras decenas de miles de jóvenes del EPA marchaban hacia las montañas y el interior del país, el resto de la población civil tenía una misión igual de importante en las ciudades. Este afiche es un llamado a 'Consolidar la Revolución en la Retaguardia'. Documenta la movilización social total: los ciudadanos que se quedaron debían mantener la producción económica, la seguridad de los barrios y la logística necesaria para sostener a los brigadistas en el campo. Fue un esfuerzo de toda una nación trabajando en sintonía durante cinco meses ininterrumpidos."
+  },
+  {
+    "imagen": "../assets/img/OIP (10)-new.jpg",
+    "alt": "Portada del Diario Barricada de 1980",
+    "clase_css": "cover",
+    "titulo": "El Despliegue Masivo (Diario Barricada)",
+    "descripcion": "Portada histórica del diario Barricada fechada en el inicio de la movilización. Con el titular 'Todos a combatir la ignorancia', la imagen documenta visualmente la salida masiva de los jóvenes hacia el campo a bordo de camiones de transporte. Este registro periodístico valida las cifras de participación masiva y refleja el ambiente de entusiasmo patriótico. La fecha de la publicación coincide con el arranque del operativo el 23 de marzo de 1980, el primer día de los cinco meses que cambiarían la historia cultural de Nicaragua."
+  },
+  {
+    "imagen": "../assets/img/OIP (9)-new.jpg",
+    "alt": "Brigadistas celebrando el 1er Aniversario",
+    "clase_css": "cover",
+    "titulo": "Juventud, Alfabetización y Revolución",
+    "descripcion": "Fotografía documental de una escuadra de jóvenes brigadistas del EPA sosteniendo una pancarta que saluda el 1er Aniversario de la Revolución (julio de 1980). Esta imagen es una prueba visual de la juventud de los participantes, muchos de ellos estudiantes de secundaria, quienes abandonaron las comodidades urbanas. La foto fue tomada en pleno desarrollo de la campaña (entre marzo y agosto), evidenciando la moral alta y el orgullo de los alfabetizadores en medio de su dura labor comunitaria en las zonas alejadas."
+  },
+  {
+    "imagen": "../assets/img/OIP (11)-new.jpg",
+    "alt": "Pintura del encuentro entre brigadistas y campesinos",
+    "clase_css": "cover",
+    "titulo": "El Encuentro de Dos Mundos",
+    "descripcion": "Obra artística que retrata el fenómeno sociológico más profundo de la Gran Cruzada: el intercambio cultural bi-direccional. La pintura muestra a un joven brigadista citadino (identificado por su boina y vestimenta) compartiendo la cartilla de lectura con una familia campesina en su entorno rural (con los elementos agrícolas como el maíz y el comal presentes). Esta representación visualiza fielmente el núcleo del proyecto: la enseñanza mutua donde la juventud llevaba el conocimiento de las letras, mientras el campesinado compartía su conocimiento sobre la tierra y la vida agraria."
+  }
+]

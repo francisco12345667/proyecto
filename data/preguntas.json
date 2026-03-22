@@ -1,0 +1,92 @@
+[
+  {
+    "pregunta": "¿Cuál era el índice oficial de analfabetismo heredado en Nicaragua antes del 23 de marzo de 1980, según el MINED?",
+    "opciones": ["35.50%", "50.35%", "65.10%", "80.00%"],
+    "correcta": 1,
+    "categoria": "Estadísticas"
+  },
+  {
+    "pregunta": "¿A qué porcentaje se logró reducir el analfabetismo tras la culminación de la etapa intensiva de la Cruzada?",
+    "opciones": ["5.00%", "10.50%", "12.96%", "20.15%"],
+    "correcta": 2,
+    "categoria": "Estadísticas"
+  },
+  {
+    "pregunta": "¿De quién es el mandato histórico 'Y también enséñenles a leer', que se convirtió en el faro moral de la campaña?",
+    "opciones": ["Augusto C. Sandino", "Carlos Fonseca Amador", "Rubén Darío", "José Dolores Estrada"],
+    "correcta": 1,
+    "categoria": "Historia"
+  },
+  {
+    "pregunta": "¿En qué fecha exacta culminó victoriosamente la etapa principal e intensiva de la Gran Cruzada?",
+    "opciones": ["19 de julio de 1979", "23 de marzo de 1980", "23 de agosto de 1980", "1 de enero de 1981"],
+    "correcta": 2,
+    "categoria": "Fechas"
+  },
+  {
+    "pregunta": "¿Qué nombre recibió la organización que aglutinó a los miles de jóvenes y maestros que marcharon a las montañas?",
+    "opciones": ["Frente Educativo Nacional", "Ejército Popular de Alfabetización (EPA)", "Brigadas de la Retaguardia", "Juventud de Vanguardia"],
+    "correcta": 1,
+    "categoria": "Brigadistas"
+  },
+  {
+    "pregunta": "¿Qué premio internacional otorgó la UNESCO a Nicaragua en 1981 por la asombrosa efectividad de la Cruzada?",
+    "opciones": ["Premio Nobel de Educación", "Medalla Rubén Darío", "Medalla Nadezhda Krupskaya", "Galardón de la Paz Educativa"],
+    "correcta": 2,
+    "categoria": "Reconocimientos"
+  },
+  {
+    "pregunta": "Según la historia documentada, ¿cuál fue el principal fenómeno sociológico que generó la movilización de los brigadistas?",
+    "opciones": ["La migración permanente de campesinos a la ciudad", "El encuentro e intercambio cultural bi-direccional entre el campo y la ciudad", "La creación de nuevas universidades rurales", "El rechazo de la tecnología agrícola"],
+    "correcta": 1,
+    "categoria": "Impacto Social"
+  },
+  {
+    "pregunta": "¿Cuál era la frase o lema simbólico que representaba el paso del analfabetismo al conocimiento?",
+    "opciones": ["La educación es el arma del futuro", "Convirtiendo la oscurana en claridad", "De la montaña a la ciudad", "Leer para vencer"],
+    "correcta": 1,
+    "categoria": "Simbolismo"
+  },
+  {
+    "pregunta": "¿Qué labor realizaba la población civil en las ciudades mientras los brigadistas estaban en la montaña?",
+    "opciones": ["Recibir clases por radio", "Consolidar la Revolución en la Retaguardia manteniendo la producción", "Construir escuelas de concreto", "Imprimir los periódicos"],
+    "correcta": 1,
+    "categoria": "Historia"
+  },
+  {
+    "pregunta": "¿Qué aspecto de la vida rural aprendieron los brigadistas urbanos como parte del intercambio mutuo de saberes?",
+    "opciones": ["Uso de maquinaria pesada industrial", "Labores agrícolas, siembra y el ciclo de la tierra", "Estrategias de comercio internacional", "Manejo de puertos pesqueros"],
+    "correcta": 1,
+    "categoria": "Brigadistas"
+  },
+  {
+    "pregunta": "En las conmemoraciones de 2025 y 2026, ¿cómo se considera el legado de la Gran Cruzada respecto a la actualidad?",
+    "opciones": ["Un evento aislado sin impacto moderno", "La base fundacional del actual sistema de educación gratuita e inclusiva", "Una campaña que solo funcionó en la capital", "Un proyecto exclusivamente universitario"],
+    "correcta": 1,
+    "categoria": "Actualidad"
+  },
+  {
+    "pregunta": "En la iconografía de la Cruzada (como el afiche principal), ¿qué sostiene el puño rojo que irradia luz?",
+    "opciones": ["Un fusil", "Una bandera", "Un lápiz", "Un libro"],
+    "correcta": 2,
+    "categoria": "Simbolismo"
+  },
+  {
+    "pregunta": "¿Qué periódico de 1980 documentó el despliegue masivo bajo el titular 'Todos a combatir la ignorancia'?",
+    "opciones": ["La Gaceta", "Barricada", "El Nuevo Amanecer", "Prensa Libre"],
+    "correcta": 1,
+    "categoria": "Historia"
+  },
+  {
+    "pregunta": "¿Cuántos meses de trabajo ininterrumpido abarcó la etapa principal de la movilización de alfabetizadores?",
+    "opciones": ["Tres meses", "Cinco meses", "Ocho meses", "Un año completo"],
+    "correcta": 1,
+    "categoria": "Fechas"
+  },
+  {
+    "pregunta": "¿A qué atribuyen los documentos históricos la causa principal del 50.35% de analfabetismo antes de 1980?",
+    "opciones": ["Falta de interés de la población", "Decisión voluntaria del campesinado", "Políticas de exclusión del sistema político y económico anterior", "Falta de maestros en el continente"],
+    "correcta": 2,
+    "categoria": "Contexto Social"
+  }
+]

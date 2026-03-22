@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .perfil-header { background: var(--cna-negro); color: var(--cna-blanco); padding: 3rem 2rem; border-radius: var(--radio-borde); margin-bottom: 2rem; text-align: center; }
+        .perfil-header h2 { color: var(--cna-rojo); border: none; margin-bottom: 0.5rem; font-size: 2rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .stat-card { background: var(--cna-blanco); padding: 1.5rem; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); text-align: center; border-bottom: 4px solid var(--cna-rojo); }
+        .stat-card h3 { font-size: 2.5rem; color: var(--cna-negro); margin-bottom: 0.5rem; }
+        .stat-card p { color: var(--cna-gris-texto); text-transform: uppercase; font-size: 0.85rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="quiz.html">Minijuego</a></li>
+                    <li><a href="#" id="btn-logout" style="color: var(--cna-rojo);">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="max-width: 1000px; margin: 2rem auto; padding: 0 1rem;">
+        <div class="perfil-header">
+            <h2>Bienvenido, <span id="nombre-usuario">Estudiante</span></h2>
+            <p>Brigadista del Conocimiento</p>
+        </div>
+
+        <h3 style="margin-bottom: 1.5rem;">Tu Historial Académico</h3>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 id="stat-puntaje">0</h3>
+                <p>Puntaje Máximo</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-intentos">0</h3>
+                <p>Misiones (Quizzes) Completadas</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-rango">Novato</h3>
+                <p>Rango Actual</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script>
+        // Cargar datos en el perfil
+        document.addEventListener('DOMContentLoaded', () => {
+            const usuario = JSON.parse(sessionStorage.getItem('cna_usuario'));
+            if (!usuario) {
+                window.location.href = 'login.html'; // Proteger ruta
+                return;
+            }
+            document.getElementById('nombre-usuario').textContent = usuario.nombre;
+            
+            // Aquí idealmente harías un fetch al backend (/api/resultados/usuario/:id)
+            // Por ahora, leemos de un historial local simulado o ponemos datos de ejemplo
+            const puntaje = localStorage.getItem('cna_max_puntaje') || 0;
+            document.getElementById('stat-puntaje').textContent = puntaje;
+            
+            if(puntaje > 400) document.getElementById('stat-rango').textContent = "Vanguardia";
+            else if(puntaje > 200) document.getElementById('stat-rango').textContent = "Brigadista";
+        });
+    </script>
+</body>
+</html>

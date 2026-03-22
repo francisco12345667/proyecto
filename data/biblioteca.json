@@ -1,0 +1,51 @@
+[
+  {
+    "titulo": "Cartilla Sandinista: Lección 1",
+    "fase": "Iniciación y Vocales",
+    "descripcion": "El primer paso para abandonar la oscurana. Este documento histórico contiene la lección introductoria donde los campesinos y obreros se familiarizaban con el lápiz y aprendían las vocales básicas, enmarcadas en el contexto de la Revolución y el legado de Sandino.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L1.pdf",
+    "icono": "📘"
+  },
+  {
+    "titulo": "Cartilla Sandinista: Lecciones 2 al 4",
+    "fase": "Sílabas Básicas y Conciencia Social",
+    "descripcion": "Avance hacia la formación de las primeras palabras y sílabas simples. En estas páginas, el método de enseñanza mutua integraba conceptos de la vida agraria y la lucha popular, permitiendo que el estudiante no solo memorizara letras, sino que leyera su propia realidad.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L2-4.pdf",
+    "icono": "📗"
+  },
+  {
+    "titulo": "Cartilla Sandinista: Lecciones 5 al 8",
+    "fase": "Estructuras Complejas",
+    "descripcion": "Desarrollo de oraciones completas y fonemas más complejos. Aquí se evidencia el modelo pedagógico liberador de la Cruzada, donde la lectura de palabras se combina con ilustraciones de la organización comunitaria, el trabajo en el campo y la defensa de los derechos conquistados.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L5-8.pdf",
+    "icono": "📙"
+  },
+  {
+    "titulo": "Cartilla Sandinista: Lecciones 9 al 12",
+    "fase": "Comprensión Lectora Intermedia",
+    "descripcion": "En este bloque, el brigadista del EPA guiaba al estudiante para leer párrafos cortos. El material didáctico original muestra cómo se abordaban temas de salud, higiene, producción agrícola y la importancia de la unidad nacional tras el triunfo revolucionario.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L9-12.pdf",
+    "icono": "📕"
+  },
+  {
+    "titulo": "Cartilla Sandinista: Lecciones 13 al 16",
+    "fase": "Lectura Fluida y Escritura",
+    "descripcion": "Fase avanzada donde cientos de miles de nicaragüenses comenzaron a soltar la mano para escribir textos propios y leer de corrido. Estas lecciones representan el punto de quiebre donde el índice de analfabetismo comenzaba a desmoronarse gracias a la constancia de las brigadas.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L13-16.pdf",
+    "icono": "📓"
+  },
+  {
+    "titulo": "Cartilla Sandinista: Lecciones 17 al 20",
+    "fase": "Consolidación Educativa",
+    "descripcion": "Material de refuerzo histórico. Los textos aquí contenidos ayudaban a los nuevos lectores a consolidar su fluidez, preparándolos para la etapa de post-alfabetización y la integración definitiva al nuevo sistema educativo impulsado por el Ministerio de Educación.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L17-20.pdf",
+    "icono": "📚"
+  },
+  {
+    "titulo": "Cartilla Sandinista: Lecciones 21 al 23",
+    "fase": "Graduación y Victoria Cultural",
+    "descripcion": "Las lecciones finales de la cartilla oficial. Completar este cuaderno significaba el triunfo personal de cada campesino y obrero alfabetizado. Es el documento que certifica el paso definitivo de la oscurana a la claridad, logrando la meta histórica de reducir el analfabetismo al 12.96%.",
+    "url": "https://www.sandinovive.org/cna/docs/CESLE-L21-23.pdf",
+    "icono": "🎓"
+  }
+]

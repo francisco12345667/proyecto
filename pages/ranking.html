@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Posiciones - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .ranking-container { max-width: 800px; margin: 3rem auto; background: var(--cna-blanco); padding: 2rem; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); }
+        .ranking-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+        .ranking-table th, .ranking-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--cna-gris-claro); }
+        .ranking-table th { background-color: var(--cna-negro); color: var(--cna-blanco); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .ranking-table tr:hover { background-color: #f8fafc; }
+        .ranking-table tr:nth-child(1) td { font-weight: bold; color: var(--cna-rojo); font-size: 1.1rem; }
+        .medalla { font-size: 1.2rem; margin-right: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="quiz.html">Minijuego</a></li>
+                    <li><a href="ranking.html" class="activo">Ranking</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="ranking-container">
+        <h2 style="color: var(--cna-rojo); border-bottom: 2px solid var(--cna-negro); display: inline-block; margin-bottom: 1rem;">Cuadro de Honor - EPA</h2>
+        <p>Los brigadistas con mayor conocimiento documental sobre la Cruzada.</p>
+
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Brigadista</th>
+                    <th>Puntaje</th>
+                    <th>Fecha de Registro</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-ranking-body">
+                <tr><td colspan="4" style="text-align: center;">Cargando datos del servidor...</td></tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="../js/ranking.js"></script>
+</body>
+</html>

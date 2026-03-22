@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonios de la Cruzada - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .testimonios-hero {
+            background-color: var(--cna-negro);
+            color: var(--cna-blanco);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 5px solid var(--cna-rojo);
+            margin-bottom: 3rem;
+        }
+        .testimonios-hero h2 {
+            color: var(--cna-rojo);
+            font-size: 2.5rem;
+            border: none;
+            margin-bottom: 1rem;
+        }
+        .testimonios-hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+        .aviso-documental {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: var(--radio-borde);
+            border-left: 5px solid #ffeeba;
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .grid-testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1.5rem;
+        }
+        .card-testimonio {
+            background: var(--cna-blanco);
+            padding: 2.5rem;
+            border-radius: var(--radio-borde);
+            box-shadow: var(--sombra-suave);
+            position: relative;
+            border-top: 5px solid var(--cna-negro);
+            transition: var(--transicion);
+        }
+        .card-testimonio:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--cna-rojo);
+        }
+        .comillas {
+            font-size: 4rem;
+            color: var(--cna-rojo);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            font-family: serif;
+        }
+        .texto-relato {
+            font-size: 1.1rem;
+            color: var(--cna-gris-texto);
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .autor-relato {
+            border-top: 1px solid var(--cna-gris-claro);
+            padding-top: 1rem;
+        }
+        .autor-relato strong {
+            display: block;
+            color: var(--cna-negro);
+            font-size: 1.1rem;
+        }
+        .autor-relato span {
+            font-size: 0.85rem;
+            color: var(--cna-rojo);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .nota-etica {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="brigadistas.html">Brigadistas</a></li>
+                    <li><a href="testimonios.html" class="activo">Testimonios</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="testimonios-hero">
+        <h2>Voces de la Alfabetización</h2>
+        <p>Relatos que capturan el espíritu, el esfuerzo y el intercambio cultural de la movilización educativa de 1980.</p>
+    </section>
+
+    <main>
+        <div class="aviso-documental">
+            <strong>Nota de Rigor Histórico:</strong> Para mantener la fidelidad a las fuentes oficiales (MINED, Viva Nicaragua, Gaceta Sandinista) sin inventar citas falsas, los siguientes textos son <em>adaptaciones narrativas</em> inspiradas rigurosamente en los hechos, estadísticas y contextos documentados en los archivos del proyecto.
+        </div>
+
+        <div class="grid-testimonios" id="contenedor-testimonios">
+            <p style="text-align: center; width: 100%;">Cargando relatos documentales...</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const contenedor = document.getElementById('contenedor-testimonios');
+            
+            try {
+                const respuesta = await fetch('../data/testimonios.json');
+                const datos = await respuesta.json();
+                
+                contenedor.innerHTML = ''; // Limpiar mensaje de carga
+
+                datos.forEach(item => {
+                    const tarjeta = document.createElement('div');
+                    tarjeta.className = 'card-testimonio';
+                    tarjeta.innerHTML = `
+                        <div class="comillas">"</div>
+                        <p class="texto-relato">${item.relato}</p>
+                        <div class="autor-relato">
+                            <strong>${item.rol}</strong>
+                            <span>${item.ubicacion}</span>
+                            <span class="nota-etica">(${item.nota_etica})</span>
+                        </div>
+                    `;
+                    contenedor.appendChild(tarjeta);
+                });
+
+            } catch (error) {
+                console.error("Error al cargar testimonios:", error);
+                contenedor.innerHTML = `<p style="color: red; text-align: center; width: 100%;">Error al cargar la base documental de testimonios.</p>`;
+            }
+        });
+    </script>
+    
+    <script src="../js/opciones.js"></script>
+</body>
+</html>

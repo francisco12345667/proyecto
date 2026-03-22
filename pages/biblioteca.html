@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Histórica - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .biblioteca-hero {
+            background-color: var(--cna-negro);
+            color: var(--cna-blanco);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 5px solid var(--cna-rojo);
+            margin-bottom: 3rem;
+            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('../assets/img/OIP (11)-new.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .biblioteca-hero h2 { color: var(--cna-rojo); font-size: 2.8rem; border: none; margin-bottom: 1rem; text-transform: uppercase;}
+        .biblioteca-hero p { font-size: 1.15rem; max-width: 800px; margin: 0 auto; color: #e0e0e0; line-height: 1.6;}
+        
+        .grid-biblioteca {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1.5rem;
+        }
+        .card-libro {
+            background: var(--cna-blanco);
+            padding: 2rem;
+            border-radius: var(--radio-borde);
+            box-shadow: var(--sombra-suave);
+            border-top: 6px solid var(--cna-negro);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transicion);
+        }
+        .card-libro:hover {
+            transform: translateY(-8px);
+            border-top-color: var(--cna-rojo);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .icono-libro { font-size: 3rem; margin-bottom: 1rem; text-align: center; }
+        .card-libro h3 { color: var(--cna-negro); margin-bottom: 0.5rem; font-size: 1.4rem; text-align: center; }
+        .fase-libro { text-align: center; color: var(--cna-rojo); font-weight: bold; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 1.5rem; letter-spacing: 1px;}
+        .card-libro p { color: var(--cna-gris-texto); font-size: 1rem; line-height: 1.7; flex-grow: 1; text-align: justify; margin-bottom: 2rem;}
+        .btn-descarga {
+            display: block;
+            text-align: center;
+            background-color: var(--cna-rojo);
+            color: var(--cna-blanco);
+            padding: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: var(--transicion);
+            text-transform: uppercase;
+        }
+        .btn-descarga:hover { background-color: #9A0C1C; color: var(--cna-blanco); letter-spacing: 1px;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="biblioteca.html" class="activo">Biblioteca</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="biblioteca-hero">
+        <h2>Archivo Documental Primario</h2>
+        <p>Explora las cartillas y cuadernos de educación originales utilizados por el Ejército Popular de Alfabetización (EPA) en 1980. Estos documentos históricos fueron la herramienta principal para llevar la luz de la enseñanza a cada rincón de Nicaragua.</p>
+    </section>
+
+    <main>
+        <div class="grid-biblioteca" id="contenedor-biblioteca">
+            <p style="text-align: center; width: 100%; grid-column: 1 / -1;">Cargando archivos históricos...</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const contenedor = document.getElementById('contenedor-biblioteca');
+            
+            try {
+                const respuesta = await fetch('../data/biblioteca.json');
+                const documentos = await respuesta.json();
+                
+                contenedor.innerHTML = ''; 
+
+                documentos.forEach(doc => {
+                    const tarjeta = document.createElement('div');
+                    tarjeta.className = 'card-libro';
+                    tarjeta.innerHTML = `
+                        <div class="icono-libro">${doc.icono}</div>
+                        <h3>${doc.titulo}</h3>
+                        <div class="fase-libro">${doc.fase}</div>
+                        <p>${doc.descripcion}</p>
+                        <a href="${doc.url}" target="_blank" rel="noopener noreferrer" class="btn-descarga">Leer Documento Original (PDF)</a>
+                    `;
+                    contenedor.appendChild(tarjeta);
+                });
+
+            } catch (error) {
+                console.error("Error al cargar la biblioteca:", error);
+                contenedor.innerHTML = `<p style="color: red; text-align: center; grid-column: 1/-1;">Error al conectar con la base de datos documental. Verifica el servidor.</p>`;
+            }
+        });
+    </script>
+    <script src="../js/opciones.js"></script>
+</body>
+</html>

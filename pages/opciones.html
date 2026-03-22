@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones y Accesibilidad - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .opciones-container { max-width: 700px; margin: 3rem auto; background: var(--cna-blanco); padding: 2rem; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); }
+        .seccion-opcion { padding: 1.5rem 0; border-bottom: 1px solid var(--cna-gris-claro); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .seccion-opcion:last-child { border-bottom: none; }
+        .opcion-info h3 { color: var(--cna-negro); margin-bottom: 0.3rem; font-size: 1.1rem; }
+        .opcion-info p { color: var(--cna-gris-texto); font-size: 0.9rem; }
+        
+        /* Controles */
+        select, input[type="range"] { padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+        .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--cna-rojo); }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="perfil.html">Mi Perfil</a></li>
+                    <li><a href="opciones.html" class="activo">Opciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="opciones-container">
+        <h2 style="color: var(--cna-rojo); margin-bottom: 1rem; border-bottom: 2px solid var(--cna-negro);">Configuración del Sistema</h2>
+
+        <div class="seccion-opcion">
+            <div class="opcion-info">
+                <h3>Modo Oscuro</h3>
+                <p>Cambia la interfaz a colores oscuros para descansar la vista.</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="toggle-tema">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="seccion-opcion">
+            <div class="opcion-info">
+                <h3>Tamaño de Texto</h3>
+                <p>Ajusta la lectura según tu comodidad.</p>
+            </div>
+            <input type="range" id="rango-texto" min="14" max="22" value="16" step="2">
+        </div>
+
+        <div class="seccion-opcion">
+            <div class="opcion-info">
+                <h3>Idioma de la Interfaz</h3>
+                <p>Selecciona el idioma (preparado para traducción JSON).</p>
+            </div>
+            <select id="selector-idioma">
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+            </select>
+        </div>
+
+        <div class="seccion-opcion">
+            <div class="opcion-info">
+                <h3>Compartir Proyecto</h3>
+                <p>Difunde la historia de la Cruzada con un clic.</p>
+            </div>
+            <button class="btn btn-secondary" id="btn-compartir">Compartir Enlace</button>
+        </div>
+    </main>
+
+    <script src="../js/opciones.js"></script>
+</body>
+</html>

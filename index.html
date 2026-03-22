@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran Cruzada Nacional de Alfabetización - Victoria Educativa</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* Estilos de la Portada */
+        .hero-section {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: var(--cna-negro);
+            color: var(--cna-blanco);
+            border-bottom: 5px solid var(--cna-rojo);
+            margin-bottom: 2rem;
+            background-image: linear-gradient(rgba(18, 18, 18, 0.92), rgba(18, 18, 18, 0.92)), url('assets/img/OIP (10)-new.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-section h2 { color: var(--cna-rojo); font-size: 3.5rem; margin-bottom: 1.5rem; border: none; text-transform: uppercase; letter-spacing: 3px; font-weight: 900;}
+        .hero-section p { font-size: 1.3rem; max-width: 1000px; margin: 0 auto; color: #f0f0f0; line-height: 1.8;}
+        
+        /* Contenedor del Video Principal */
+        .video-container {
+            max-width: 950px;
+            margin: -4rem auto 4rem auto;
+            background: var(--cna-blanco);
+            padding: 1.5rem;
+            border-radius: var(--radio-borde);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 10;
+        }
+        .video-container h3 {
+            text-align: center;
+            color: var(--cna-rojo);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--cna-gris-claro);
+            padding-bottom: 1rem;
+        }
+        .video-wrapper {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--cna-negro);
+            aspect-ratio: 4/3;
+        }
+        .video-wrapper video { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+        /* BANNER DE IMPACTO HISTÓRICO */
+        .stats-banner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            background-color: var(--cna-rojo);
+            color: var(--cna-blanco);
+            padding: 5rem 2rem;
+            margin-bottom: 5rem;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
+        }
+        .stat-item { text-align: center; max-width: 350px; }
+        .stat-item h3 { font-size: 4rem; color: var(--cna-blanco); margin-bottom: 0.5rem; border: none; font-weight: 900; }
+        .stat-item p { font-size: 1.2rem; font-weight: 600; opacity: 1; line-height: 1.4; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* Cuadrícula de Accesos Rápidos (10 tarjetas) */
+        .accesos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+        .card-acceso {
+            background: var(--cna-blanco);
+            padding: 2.5rem;
+            border-radius: var(--radio-borde);
+            box-shadow: var(--sombra-suave);
+            text-decoration: none;
+            color: var(--cna-negro);
+            transition: var(--transicion);
+            border-top: 6px solid var(--cna-negro);
+            display: flex;
+            flex-direction: column;
+        }
+        .card-acceso:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--cna-rojo);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .card-acceso h3 { margin-bottom: 1.2rem; color: var(--cna-rojo); font-size: 1.7rem; font-weight: 800; }
+        .card-acceso p { font-size: 1.1rem; color: var(--cna-gris-texto); line-height: 1.7; text-align: justify;}
+
+        /* Footer Global */
+        .site-footer { background: var(--cna-negro); color: var(--cna-blanco); padding: 5rem 2rem 2rem 2rem; border-top: 8px solid var(--cna-rojo); }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; }
+        .footer-col h3 { color: var(--cna-rojo); margin-bottom: 1.5rem; font-size: 1.5rem; border: none; text-transform: uppercase;}
+        .footer-col p { font-size: 1rem; color: #bbb; line-height: 1.7; text-align: justify; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 1rem; }
+        .footer-col ul a { color: #ccc; text-decoration: none; font-size: 1.1rem; transition: var(--transicion); }
+        .footer-col ul a:hover { color: var(--cna-rojo); padding-left: 10px; }
+        .footer-bottom { text-align: center; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid #333; font-size: 1rem; color: #666; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-text">Victoria <span>Educativa</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="pages/historia.html">Historia</a></li>
+                    <li><a href="pages/brigadistas.html">Brigadistas</a></li>
+                    <li><a href="pages/biblioteca.html">Biblioteca</a></li>
+                    <li><a href="pages/galeria.html">Galería</a></li>
+                    <li><a href="pages/login.html" style="color: var(--cna-rojo); font-weight: 800;">Acceso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <h2>La Luz de la Enseñanza</h2>
+        <p>Archivo enciclopédico y documental sobre la Gran Cruzada Nacional de Alfabetización. Una investigación profunda sobre la movilización popular que erradicó el analfabetismo en Nicaragua, basada estrictamente en fuentes oficiales y registros históricos de 1980.</p>
+    </section>
+
+    <main>
+        <section class="video-container">
+            <h3>Himno Oficial del Ejército Popular de Alfabetización</h3>
+            <div class="video-wrapper">
+                <video controls preload="metadata" poster="assets/img/descarga (1)-new.jpg">
+                    <source src="assets/video/Himno de la Cruzada Nacional de Alfabetización.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 1.1rem; color: var(--cna-gris-texto);">
+                <em>"Puño en alto, libro abierto"</em>. Registro histórico del compromiso juvenil con la educación nacional.
+            </p>
+        </section>
+
+        <section class="stats-banner">
+            <div class="stat-item">
+                <h3>50.35%</h3>
+                <p>Analfabetismo heredado antes de la Revolución.</p>
+            </div>
+            <div class="stat-item">
+                <h3>12.96%</h3>
+                <p>Meta alcanzada tras la movilización del EPA.</p>
+            </div>
+            <div class="stat-item">
+                <h3>1981</h3>
+                <p>Reconocimiento mundial de la UNESCO.</p>
+            </div>
+        </section>
+
+        <h2 style="text-align: center; color: var(--cna-negro); margin-bottom: 3.5rem; border:none; font-size: 2.8rem; font-weight: 900;">Acervo Documental Interactivo</h2>
+        
+        <div class="accesos-grid">
+            <a href="pages/historia.html" class="card-acceso">
+                <h3>📖 Historia y Contexto</h3>
+                <p>Análisis extenso sobre la herencia de exclusión, el mandato de Carlos Fonseca en la montaña y el despliegue estratégico nacional en 1980.</p>
+            </a>
+            <a href="pages/brigadistas.html" class="card-acceso">
+                <h3>🎒 Ejército de Alfabetizadores</h3>
+                <p>Investigación sobre la estructura del EPA, el intercambio de saberes con el campesinado y el impacto del choque cultural entre campo y ciudad.</p>
+            </a>
+            <a href="pages/biblioteca.html" class="card-acceso">
+                <h3>📚 Biblioteca de Cartillas</h3>
+                <p>Acceso directo a las fuentes primarias en PDF. Revisa las lecciones originales de 'El Amanecer del Pueblo' usadas en la Cruzada.</p>
+            </a>
+            <a href="pages/testimonios.html" class="card-acceso">
+                <h3>🗣️ Voces de la Memoria</h3>
+                <p>Relatos profundos basados en diarios de brigadistas y memorias campesinas que documentan el paso de la oscurana a la claridad.</p>
+            </a>
+            <a href="pages/galeria.html" class="card-acceso">
+                <h3>📸 Galería de Museo</h3>
+                <p>Exposición analizada de afiches, portadas del diario Barricada y expresiones artísticas que simbolizan la liberación a través de las letras.</p>
+            </a>
+            <a href="pages/cronologia.html" class="card-acceso">
+                <h3>⏱️ Cronología Maestra</h3>
+                <p>Línea de tiempo detallada desde los antecedentes históricos hasta las conmemoraciones oficiales de 2025 y 2026.</p>
+            </a>
+            <a href="pages/ia.html" class="card-acceso">
+                <h3>🤖 IA Especializada</h3>
+                <p>Consulta a nuestro motor de inteligencia artificial. Respuestas académicas cerradas estrictamente a la documentación oficial del sitio.</p>
+            </a>
+            <a href="pages/quiz.html" class="card-acceso">
+                <h3>🎯 Examen de Conocimiento</h3>
+                <p>Quiz avanzado de 15 preguntas aleatorias sobre estadísticas, fechas y protagonistas. Mide tu nivel de comprensión histórica.</p>
+            </a>
+            <a href="pages/referencias.html" class="card-acceso">
+                <h3>📑 Fuentes Autorizadas</h3>
+                <p>Verificación de rigor documental: Enlaces directos al MINED, Viva Nicaragua y Gaceta Sandinista.</p>
+            </a>
+            <a href="pages/ranking.html" class="card-acceso">
+                <h3>🏆 Cuadro de Honor</h3>
+                <p>Ranking global de los estudiantes y brigadistas digitales con mejores resultados en la evaluación documental.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Victoria Educativa</h3>
+                <p>La plataforma enciclopédica definitiva sobre la Cruzada de Alfabetización. Preservando el legado pedagógico que transformó a Nicaragua para las futuras generaciones.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="pages/historia.html">Crónica Histórica</a></li>
+                    <li><a href="pages/biblioteca.html">Archivos PDF</a></li>
+                    <li><a href="pages/ia.html">Asistente Virtual</a></li>
+                    <li><a href="pages/referencias.html">Documentación</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Administración</h3>
+                <ul>
+                    <li><a href="pages/opciones.html">Accesibilidad</a></li>
+                    <li><a href="pages/contacto.html">Contacto</a></li>
+                    <li><a href="pages/admin.html">Panel Admin</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Proyecto Documental CNA. Desarrollado con rigor histórico y técnico por Rousbel.</p>
+        </div>
+    </footer>
+
+    <script src="js/opciones.js"></script>
+</body>
+</html>

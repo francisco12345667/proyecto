@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .auth-container { max-width: 400px; margin: 4rem auto; background: var(--cna-blanco); padding: 2.5rem; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); border-top: 5px solid var(--cna-rojo); }
+        .auth-container h2 { text-align: center; margin-bottom: 1.5rem; color: var(--cna-negro); border: none; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; font-size: 0.9rem; }
+        .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+        .form-group input:focus { outline: none; border-color: var(--cna-rojo); }
+        .auth-toggle { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; }
+        .auth-toggle a { color: var(--cna-rojo); cursor: pointer; text-decoration: underline; font-weight: bold; }
+        #mensaje-error { color: var(--cna-rojo); text-align: center; margin-bottom: 1rem; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav><ul><li><a href="../index.html">Volver al Inicio</a></li></ul></nav>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <h2 id="auth-titulo">Iniciar Sesión</h2>
+        <div id="mensaje-error"></div>
+
+        <form id="form-auth">
+            <div class="form-group" id="grupo-nombre" style="display: none;">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" placeholder="Ej. Augusto C. Sandino">
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" required placeholder="correo@ejemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" required placeholder="********">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-submit">Entrar</button>
+        </form>
+
+        <div class="auth-toggle">
+            <span id="texto-toggle">¿No tienes cuenta?</span> 
+            <a id="link-toggle">Regístrate aquí</a>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ref-mined",
+    "titulo": "Cruzada Nacional de Alfabetización",
+    "sitio": "Ministerio de Educación (MINED)",
+    "descripcion": "Fuente oficial del gobierno que detalla la historia, el impacto estadístico (reducción del analfabetismo al 12.96%) y los reconocimientos internacionales de la epopeya educativa.",
+    "url": "https://www.mined.gob.ni/cruzada-nacional-de-alfabetizacion-2/"
+  },
+  {
+    "id": "ref-vivanica",
+    "titulo": "El Sistema de Educación y la Cruzada de Alfabetización",
+    "sitio": "Viva Nicaragua (Canal 13)",
+    "descripcion": "Artículo conmemorativo que aborda el contexto social, el papel de la juventud en el Ejército Popular de Alfabetización (EPA) y la evolución del sistema educativo post-alfabetización.",
+    "url": "https://www.vivanicaragua.com.ni/2026/03/17/sociales/sistema-educacion-cruzada-alfabetizacion/"
+  },
+  {
+    "id": "ref-gaceta",
+    "titulo": "Victoria Educativa de la Revolución Sandinista",
+    "sitio": "Gaceta Sandinista",
+    "descripcion": "Documento histórico y político que contextualiza la cruzada como el primer gran triunfo cultural de la Revolución y el cumplimiento del mandato de Carlos Fonseca Amador.",
+    "url": "https://gacetasandinista.com/cruzada-nacional-de-alfabetizacion-victoria-educativa-de-la-revolucion-sandinista/"
+  }
+]

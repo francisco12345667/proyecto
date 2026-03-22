@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .admin-layout { display: grid; grid-template-columns: 250px 1fr; min-height: 80vh; gap: 2rem; margin-top: 2rem;}
+        .sidebar-admin { background: var(--cna-negro); color: var(--cna-blanco); padding: 2rem; border-radius: var(--radio-borde); }
+        .sidebar-admin ul { list-style: none; }
+        .sidebar-admin li { margin-bottom: 1rem; cursor: pointer; padding: 0.5rem; border-radius: 4px; transition: 0.3s; }
+        .sidebar-admin li:hover { background: var(--cna-rojo); }
+        .panel-content { background: var(--cna-blanco); padding: 2rem; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Panel <span>Director</span></div>
+            <nav><ul><li><a href="../index.html">Volver al Sitio</a></li></ul></nav>
+        </div>
+    </header>
+
+    <main class="admin-layout" style="max-width: 1200px; margin: 2rem auto;">
+        <aside class="sidebar-admin">
+            <h3>Gestión</h3>
+            <hr style="margin: 1rem 0; border-color: var(--cna-rojo);">
+            <ul>
+                <li>Usuarios Registrados</li>
+                <li>Resultados Quiz</li>
+                <li>Base Documental (JSON)</li>
+                <li>Configuración API</li>
+            </ul>
+        </aside>
+
+        <section class="panel-content">
+            <h2 style="color: var(--cna-rojo);">Resumen del Sistema</h2>
+            <p>Bienvenido al panel de control. Desde aquí puedes supervisar el rendimiento de la plataforma.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                <div style="border: 1px solid #eee; padding: 1.5rem; text-align: center; border-radius: 8px;">
+                    <h3>Total de Usuarios</h3>
+                    <p style="font-size: 3rem; color: var(--cna-rojo); font-weight: bold;">--</p>
+                </div>
+                <div style="border: 1px solid #eee; padding: 1.5rem; text-align: center; border-radius: 8px;">
+                    <h3>Salud de la IA</h3>
+                    <p style="font-size: 1.5rem; color: green; font-weight: bold; margin-top: 1rem;">Estricta y Operativa</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

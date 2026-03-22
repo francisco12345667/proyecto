@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencias Oficiales - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .referencias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .card-ref { background: var(--cna-blanco); padding: 2rem; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); border-left: 5px solid var(--cna-rojo); transition: var(--transicion); }
+        .card-ref:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .card-ref h3 { color: var(--cna-negro); margin-bottom: 0.5rem; }
+        .card-ref .sitio { color: var(--cna-rojo); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .card-ref p { color: var(--cna-gris-texto); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="referencias.html" class="activo">Referencias</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="ia-wrapper" style="max-width: 1000px; padding: 2rem; background: transparent; box-shadow: none; border: none;">
+        <h2>Fuentes Documentales Autorizadas</h2>
+        <p>Toda la información, minijuegos y respuestas de la IA en esta plataforma están extraídos <strong>estrictamente</strong> de las siguientes fuentes oficiales. No se ha utilizado información de terceros ni bases de datos externas.</p>
+        
+        <div class="referencias-grid" id="contenedor-referencias">
+            </div>
+    </main>
+
+    <script>
+        // Carga dinámica de las referencias
+        document.addEventListener('DOMContentLoaded', async () => {
+            const contenedor = document.getElementById('contenedor-referencias');
+            try {
+                const respuesta = await fetch('../data/referencias.json');
+                const referencias = await respuesta.json();
+                
+                referencias.forEach(ref => {
+                    const card = document.createElement('div');
+                    card.className = 'card-ref';
+                    card.innerHTML = `
+                        <h3>${ref.titulo}</h3>
+                        <span class="sitio">${ref.sitio}</span>
+                        <p>${ref.descripcion}</p>
+                        <a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visitar Fuente Original</a>
+                    `;
+                    contenedor.appendChild(card);
+                });
+            } catch (error) {
+                contenedor.innerHTML = '<p style="color:red;">Error al cargar las referencias documentales.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

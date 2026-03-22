@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Documental - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .galeria-hero {
+            background-color: var(--cna-negro);
+            color: var(--cna-blanco);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 5px solid var(--cna-rojo);
+            margin-bottom: 3rem;
+        }
+        .galeria-hero h2 { color: var(--cna-rojo); font-size: 2.8rem; border: none; margin-bottom: 1rem; }
+        .galeria-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #e0e0e0; }
+        
+        /* Grid de Museo */
+        .museo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1.5rem;
+        }
+        .pieza-museo {
+            background: var(--cna-blanco);
+            border-radius: var(--radio-borde);
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+            transition: var(--transicion);
+        }
+        .pieza-museo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .pieza-imagen {
+            width: 100%;
+            height: 350px;
+            background-color: #f8f9fa;
+            border-bottom: 4px solid var(--cna-rojo);
+        }
+        .pieza-imagen img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        /* Clases dinámicas para ajustar cómo se ve la foto */
+        .pieza-imagen.contain img { object-fit: contain; padding: 1rem; }
+        .pieza-imagen.cover img { object-fit: cover; }
+        
+        .pieza-info { padding: 2rem; }
+        .pieza-info h3 { color: var(--cna-negro); font-size: 1.5rem; margin-bottom: 1rem; }
+        .pieza-info p { color: var(--cna-gris-texto); font-size: 1.05rem; line-height: 1.8; text-align: justify; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="brigadistas.html">Brigadistas</a></li>
+                    <li><a href="galeria.html" class="activo">Galería</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="galeria-hero">
+        <h2>Exposición Museográfica</h2>
+        <p>Un recorrido visual profundo por la memoria gráfica de la epopeya educativa. Afiches, registros periodísticos y expresiones artísticas de 1980.</p>
+    </section>
+
+    <main>
+        <div class="museo-grid" id="contenedor-galeria">
+            <p style="text-align: center; width: 100%; grid-column: 1 / -1;">Cargando archivos del museo...</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const contenedor = document.getElementById('contenedor-galeria');
+            
+            try {
+                // Obtenemos los datos masivos desde el JSON
+                const respuesta = await fetch('../data/galeria.json');
+                const galeriaDatos = await respuesta.json();
+                
+                contenedor.innerHTML = ''; // Limpiamos el texto de carga
+
+                galeriaDatos.forEach(pieza => {
+                    const articulo = document.createElement('article');
+                    articulo.className = 'pieza-museo';
+                    
+                    articulo.innerHTML = `
+                        <div class="pieza-imagen ${pieza.clase_css}">
+                            <img src="${pieza.imagen}" alt="${pieza.alt}" loading="lazy">
+                        </div>
+                        <div class="pieza-info">
+                            <h3>${pieza.titulo}</h3>
+                            <p>${pieza.descripcion}</p>
+                        </div>
+                    `;
+                    contenedor.appendChild(articulo);
+                });
+
+            } catch (error) {
+                console.error("Error al cargar la galería:", error);
+                contenedor.innerHTML = `
+                    <div style="text-align:center; grid-column: 1/-1; color: red;">
+                        <h3>Error de conexión documental</h3>
+                        <p>Asegúrese de estar ejecutando el servidor (node backend/server.js) y navegando en http://localhost:3000</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+
+    <script src="../js/opciones.js"></script>
+</body>
+</html>

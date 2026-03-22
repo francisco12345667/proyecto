@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Minijuego: Pon a prueba tu conocimiento - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .quiz-container { max-width: 800px; margin: 3rem auto; background: var(--cna-blanco); border-radius: var(--radio-borde); padding: 2rem; box-shadow: var(--sombra-suave); }
+        .quiz-header { display: flex; justify-content: space-between; margin-bottom: 2rem; font-weight: bold; border-bottom: 2px solid var(--cna-gris-claro); padding-bottom: 1rem;}
+        .pregunta-texto { font-size: 1.25rem; color: var(--cna-negro); margin-bottom: 1.5rem; }
+        .opciones-grid { display: grid; gap: 10px; }
+        .btn-opcion { background: var(--cna-gris-claro); color: var(--cna-negro); border: 2px solid transparent; padding: 1rem; text-align: left; border-radius: var(--radio-borde); cursor: pointer; transition: var(--transicion); font-size: 1rem; }
+        .btn-opcion:hover { background: #e2e8f0; border-color: var(--cna-rojo); }
+        .btn-opcion.correcta { background: #dcfce7; border-color: #22c55e; color: #166534; }
+        .btn-opcion.incorrecta { background: #fee2e2; border-color: var(--cna-rojo); color: var(--cna-rojo-oscuro); }
+        
+        #pantalla-resultados { display: none; text-align: center; }
+        .puntaje-final { font-size: 3rem; color: var(--cna-rojo); font-weight: 800; margin: 1rem 0; }
+        .progress-bar { width: 100%; height: 10px; background: var(--cna-gris-claro); border-radius: 5px; margin-top: 1rem; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--cna-rojo); width: 0%; transition: width 0.3s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="quiz.html" class="activo">Minijuego</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <div id="pantalla-juego">
+            <div class="quiz-header">
+                <span id="contador-preguntas">Pregunta 1 de X</span>
+                <span id="temporizador">Tiempo: 00:00</span>
+            </div>
+            
+            <h3 class="pregunta-texto" id="pregunta-actual">Cargando pregunta...</h3>
+            
+            <div class="opciones-grid" id="contenedor-opciones">
+                </div>
+
+            <div class="progress-bar"><div class="progress-fill" id="barra-progreso"></div></div>
+            
+            <div style="margin-top: 2rem; text-align: right;">
+                <button class="btn btn-primary" id="btn-siguiente" style="display: none;">Siguiente Pregunta</button>
+            </div>
+        </div>
+
+        <div id="pantalla-resultados">
+            <h2>¡Campaña Completada!</h2>
+            <p>Has terminado la prueba documental sobre la Cruzada de Alfabetización.</p>
+            <div class="puntaje-final" id="texto-puntaje">0%</div>
+            <p id="mensaje-retroalimentacion" style="margin-bottom: 2rem; font-weight: bold;"></p>
+            <button class="btn btn-primary" onclick="location.reload()">Reintentar</button>
+            <button class="btn btn-secondary" onclick="window.location.href='../index.html'">Volver al Inicio</button>
+        </div>
+    </main>
+
+    <script src="../js/quiz.js"></script>
+</body>
+</html>

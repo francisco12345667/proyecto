@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Brigadistas - CNA</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .brigadistas-hero {
+            background-color: var(--cna-negro);
+            color: var(--cna-blanco);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 5px solid var(--cna-rojo);
+            margin-bottom: 3rem;
+        }
+        .brigadistas-hero h2 {
+            color: var(--cna-rojo);
+            font-size: 2.8rem;
+            border: none;
+            margin-bottom: 1rem;
+        }
+        .brigadistas-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+        
+        /* Usando exactamente la misma estructura ganadora de Referencias */
+        .referencias-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 1.5rem; 
+            max-width: 1000px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1.5rem;
+        }
+        .card-ref { 
+            background: var(--cna-blanco); 
+            padding: 2.5rem; 
+            border-radius: var(--radio-borde); 
+            box-shadow: var(--sombra-suave); 
+            border-left: 5px solid var(--cna-rojo); 
+            transition: var(--transicion); 
+        }
+        .card-ref:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
+        }
+        .card-ref h3 { 
+            color: var(--cna-negro); 
+            margin-bottom: 1rem; 
+            font-size: 1.4rem;
+        }
+        .card-ref p { 
+            color: var(--cna-gris-texto); 
+            line-height: 1.7; 
+            font-size: 1.05rem; 
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Victoria <span>Educativa</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="brigadistas.html" class="activo">Brigadistas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="brigadistas-hero">
+        <h2>El Ejército Popular de Alfabetización</h2>
+        <p>Jóvenes, maestros y voluntarios que abandonaron la ciudad para llevar la luz de la enseñanza a las montañas de Nicaragua.</p>
+    </section>
+
+    <main>
+        <div class="referencias-grid" id="contenedor-brigadistas">
+            </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contenedor = document.getElementById('contenedor-brigadistas');
+            
+            // Datos directos para evitar el error de fetch/JSON
+            const datosBrigadistas = [
+                {
+                    titulo: "¿Quiénes fueron los brigadistas?",
+                    contenido: "Los brigadistas fueron miles de jóvenes, estudiantes, maestros, trabajadores y voluntarios que respondieron al llamado de la Revolución. Se organizaron principalmente en el Ejército Popular de Alfabetización (EPA), convirtiéndose en la fuerza motriz para llevar la educación a todos los rincones del país."
+                },
+                {
+                    titulo: "La convivencia en el campo",
+                    contenido: "Dejando las comodidades de la ciudad, los jóvenes se movilizaron hacia las zonas rurales y montañosas de Nicaragua. Allí convivieron estrechamente con las familias campesinas. El proceso fue un intercambio mutuo: mientras los brigadistas enseñaban a leer y escribir, también aprendían de la realidad agraria, participando en las labores agrícolas."
+                },
+                {
+                    titulo: "Cumplimiento del mandato histórico",
+                    contenido: "La movilización de estos miles de alfabetizadores materializó la frase histórica de Carlos Fonseca Amador: 'Y también enséñenles a leer'. El trabajo de los brigadistas no solo fue una labor técnica, sino que representó la primera gran victoria educativa y cultural de la Revolución Sandinista."
+                }
+            ];
+
+            // Generar las tarjetas idénticas a las de referencias
+            datosBrigadistas.forEach(bloque => {
+                const tarjeta = document.createElement('div');
+                tarjeta.className = 'card-ref';
+                tarjeta.innerHTML = `
+                    <h3>${bloque.titulo}</h3>
+                    <p>${bloque.contenido}</p>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
+        });
+    </script>
+    
+    <script src="../js/opciones.js"></script>
+</body>
+</html>
