@@ -1,92 +1,68 @@
-// /js/ia.js
 document.addEventListener('DOMContentLoaded', () => {
     const chatWindow = document.getElementById('chat-window');
     const inputPregunta = document.getElementById('input-pregunta');
     const btnEnviar = document.getElementById('btn-enviar');
-    const btnLimpiar = document.getElementById('btn-limpiar');
 
-    // Inicializar historial
-    let historial = JSON.parse(sessionStorage.getItem('ia_historial')) || [];
-    
-    function renderizarHistorial() {
-        chatWindow.innerHTML = '';
-        if (historial.length === 0) {
-            agregarBurbuja('ia', '¡Saludos! Soy el sistema de consulta oficial sobre la Gran Cruzada Nacional de Alfabetización. ¿Qué aspecto de la historia, brigadistas o impacto deseas explorar hoy?', false);
-        } else {
-            historial.forEach(msg => agregarBurbuja(msg.rol, msg.texto, false));
-        }
-    }
-
-    function agregarBurbuja(rol, texto, guardar = true) {
-        const div = document.createElement('div');
-        div.classList.add('mensaje', rol); // Agrega clases 'mensaje' y 'ia' o 'usuario'
-        
-        // Formateo simple para negritas
-        let textoFormateado = texto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>');
-        div.innerHTML = textoFormateado;
-        
-        chatWindow.appendChild(div);
-        chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll hacia abajo
-
-        if (guardar) {
-            historial.push({ rol, texto });
-            sessionStorage.setItem('ia_historial', JSON.stringify(historial));
-        }
-    }
-
-    async function procesarPregunta() {
-        const pregunta = inputPregunta.value.trim();
-        if (!pregunta) return;
-
-        agregarBurbuja('usuario', pregunta);
-        inputPregunta.value = '';
-        inputPregunta.disabled = true;
-        btnEnviar.disabled = true;
-
-        // Añadir indicador de carga
-        const divCarga = document.createElement('div');
-        divCarga.id = 'indicador-carga';
-        divCarga.classList.add('mensaje', 'ia');
-        divCarga.innerHTML = '<em>Consultando documentos oficiales...</em>';
-        chatWindow.appendChild(divCarga);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-
+    // Función para buscar en los documentos sin servidor (Lógica de Cliente)
+    async function buscarEnDocumentos(pregunta) {
         try {
-            // Conexión al servidor Node.js
-            const respuesta = await fetch('http://localhost:3000/api/ia', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pregunta })
-            });
+            const p = pregunta.toLowerCase();
+            
+            // Cargamos los archivos JSON directamente desde la carpeta data
+            const resHistoria = await fetch('../data/historia.json');
+            const resBrigadistas = await fetch('../data/brigadistas.json');
+            
+            const historia = await resHistoria.json();
+            const brigadistas = await resBrigadistas.json();
+            
+            const baseCompleta = [...historia, ...brigadistas];
 
-            const datos = await respuesta.json();
-            divCarga.remove(); // Quitar "Cargando..."
-            agregarBurbuja('ia', datos.respuesta);
+            // Buscamos coincidencia por palabras clave
+            const hallazgo = baseCompleta.find(item => 
+                item.keywords.some(k => p.includes(k.toLowerCase()))
+            );
 
+            if (hallazgo) {
+                return hallazgo.contenido || hallazgo.relato;
+            } else {
+                return "Lo siento, Rousbel. No encuentro información específica sobre eso. Intenta preguntar sobre el 50.35%, Carlos Fonseca, el EPA o la medalla de la UNESCO.";
+            }
         } catch (error) {
-            divCarga.remove();
-            agregarBurbuja('ia', 'Error de red. Asegúrate de que el servidor (node backend/server.js) esté corriendo.');
-        } finally {
-            inputPregunta.disabled = false;
-            btnEnviar.disabled = false;
-            inputPregunta.focus();
+            console.error("Error al leer JSON:", error);
+            return "Error al acceder a la base documental. Verifica que los archivos JSON estén en la carpeta data.";
         }
     }
 
-    // Eventos
-    btnEnviar.addEventListener('click', procesarPregunta);
+    async function procesarMensaje() {
+        const texto = inputPregunta.value.trim();
+        if (!texto) return;
+
+        // Mostrar mensaje del usuario
+        agregarBurbuja('usuario', texto);
+        inputPregunta.value = "";
+
+        // Mostrar "Pensando..."
+        const loadingDiv = agregarBurbuja('ia', 'Consultando archivos históricos...');
+
+        // Buscar respuesta
+        const respuesta = await buscarEnDocumentos(texto);
+        
+        // Reemplazar "Pensando" por la respuesta real
+        loadingDiv.textContent = respuesta;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function agregarBurbuja(rol, texto) {
+        const div = document.createElement('div');
+        div.className = `mensaje ${rol}`;
+        div.textContent = texto;
+        chatWindow.appendChild(div);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+        return div;
+    }
+
+    btnEnviar.addEventListener('click', procesarMensaje);
     inputPregunta.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') procesarPregunta();
+        if (e.key === 'Enter') procesarMensaje();
     });
-
-    btnLimpiar.addEventListener('click', () => {
-        if(confirm("¿Borrar el historial de investigación?")) {
-            sessionStorage.removeItem('ia_historial');
-            historial = [];
-            renderizarHistorial();
-        }
-    });
-
-    // Arrancar
-    renderizarHistorial();
 });
